@@ -4,6 +4,30 @@
 2. apply
 3. bind
 4. assign
+5. freeze
+6. isFrozen
+7. seal
+8. isSealed
+9. preventExtensions
+10. entries
+11. getOwnPropertyDescriptor
+12. getOwnPropertyDescriptors
+13. getOwnPropertyNames
+14. getOwnPropertySymbols
+15. getPrototypeOf
+16. is
+17. isExtensible
+18. create
+19. defineProperty
+20. keys
+21. length
+22. name
+23. fromEntries
+24. prototype
+25. defineProperties
+26. setPrototypeOf
+27. toString
+28. values
 
 */
 
@@ -151,3 +175,78 @@ console.log(Object.assign(course, grade, {teacher: "Mrs Water"}));
 const copyObject = Object.assign({}, course, grade);
 
 console.log(copyObject);
+
+/*
+
+5. freeze
+
+*/
+
+// freeze() which is used to freeze an object. Freezing an object does not allow new properties to be added to an object and prevents from removing or altering the existing properties. Object.freeze() preserves the enumerability, configurability, writability and the prototype of the object.
+
+// Example: 1
+
+const profile = {
+    name: "henry",
+    address: {
+        country: "india"
+    }
+}
+
+Object.freeze(profile);
+console.log(Object.isFrozen(profile));
+
+console.log(profile);
+
+// property does not change 
+profile.name = "joe";
+
+// inner property does change
+profile.address.country = "us";
+
+console.log(profile);
+
+/*
+
+6. isFrozen
+
+*/
+
+// Check if method is freeze so return true otherwise false
+
+// Code available in freeze method
+
+/* 
+
+7. seal
+
+*/
+
+// seal() method of JavaScript seals an object which prevents new properties from being added to it and marks all existing properties as non-configurable. The object to be sealed is passed as an argument, and the method returns the object which has been sealed.
+
+// Example: 1
+
+const car = {
+    name: "indica",
+    manufacture: {
+        country: "india"
+    }
+}
+
+Object.seal(car);
+console.log(Object.isSealed(car));
+
+car.name = "mercedes";
+car.manufacture.country ="us";
+
+console.log(car);
+
+/*
+
+8. isSealed
+
+*/
+
+// Check if method is seal so return true otherwise false
+
+// Code available in seal method
