@@ -10,24 +10,24 @@
 8. isSealed
 9. preventExtensions
 10. entries
-11. getOwnPropertyDescriptor
-12. getOwnPropertyDescriptors
-13. getOwnPropertyNames
-14. getOwnPropertySymbols
-15. getPrototypeOf
+11. keys
+12. values
+13. name
+14. toString
+15. create
 16. is
 17. isExtensible
-18. create
+18. getPrototypeOf
 19. defineProperty
-20. keys
+20. getOwnPropertyDescriptors
 21. length
-22. name
+22. getOwnPropertyNames
 23. fromEntries
 24. prototype
 25. defineProperties
 26. setPrototypeOf
-27. toString
-28. values
+27. getOwnPropertySymbols
+28. getOwnPropertyDescriptor
 
 */
 
@@ -119,7 +119,7 @@ const firstPerson = {
     lastName: "Khunt"
 }
 
-person.fullName.apply(firstPerson); 
+person.fullName.apply(firstPerson);
 
 // Exmaple: 2
 
@@ -168,7 +168,7 @@ const grade = {
     score: 98
 };
 
-console.log(Object.assign(course, grade, {teacher: "Mrs Water"}));
+console.log(Object.assign(course, grade, { teacher: "Mrs Water" }));
 
 // Example: 2
 
@@ -237,7 +237,7 @@ Object.seal(car);
 console.log(Object.isSealed(car));
 
 car.name = "mercedes";
-car.manufacture.country ="us";
+car.manufacture.country = "us";
 
 console.log(car);
 
@@ -279,3 +279,338 @@ movie.time = "180min";
 delete movie.song;
 
 console.log(movie);
+
+/*
+
+10. entries
+
+*/
+
+// Object.entries() method is used to return an array consisting of enumerable property [key, value] pairs of the object which are passed as the parameter. The ordering of the properties is the same as that given by looping over the property values of the object manually.
+
+// Example: 1
+
+const myEntries = {
+    name: 'Prince Khunt',
+    age: 16,
+    work: "MERN Stack Developer"
+};
+
+let entires = Object.entries(myEntries);
+
+console.log(entires);
+
+/*
+
+11. keys
+
+*/
+
+// Object.keys() returns an array whose elements are strings corresponding to the enumerable properties found directly upon object. The ordering of the properties is the same as that given by looping over the properties of the object manually.
+
+// Example: 1
+
+const todos = {
+    id: 1,
+    userId: 12154,
+    title: "delectus aut autem",
+    completed: false
+}
+
+for (const key in todos) {
+    console.log(todos[key]);
+}
+
+Object.keys(todos).forEach((i) => {
+    console.log(todos[i]);
+})
+
+/*
+
+12. values
+
+*/
+
+// Object.values() method is used to return an array whose elements are the enumerable property values found on the object. The ordering of the properties is the same as that given by the object manually is a loop is applied to the properties. 
+
+// Example: 1
+
+let values = Object.values(todos);
+
+console.log(values);
+
+/*
+
+13. name
+
+*/
+
+// The function name property of the javascript object is used to return the name of the function. This name property of the function is only readable and cannot be altered. The name of the function which was given when the function was created is returned by Function.name.
+
+// Example: 1
+
+function dummyName() {
+
+}
+
+console.log(dummyName.name);
+
+/*
+
+14. toString
+
+*/
+
+// The toString() method returns a string as a string. The toString() method does not change the original string. The toString() method can be used to convert a string object into a string.
+
+// Example: 1
+
+let names = ["Prince", "Aman", "Sundar"];
+
+console.log(names.toString());
+
+/*
+
+15. create
+
+*/
+
+// create() method is used to create a new object with the specified prototype object and properties. Object.create() method returns a new object with the specified prototype object and properties.
+
+// Example: 1
+
+const create = Object.create({
+    name: "yahoo",
+    work: "searching"
+});
+
+console.log(create);
+
+/*
+
+16. is
+
+*/
+
+// Object.is() method is used to determine whether two values are the same or not. Two values can be same if they hold one of the following properties: If both the values are undefined.
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+
+/*
+
+17. isExtensible
+
+*/
+
+// Objects are extensible by default they can have new properties added to them, and their [[Prototype]] can be re-assigned. An object can be marked as non-extensible using one of Object.preventExtensions(), Object.seal(), Object.freeze()
+
+// Example: 1
+
+const extensible = {
+    action: "Running"
+}
+
+console.log(Object.isExtensible(extensible));
+
+/*
+
+18. getPrototypeOf
+
+*/
+
+// The getPrototypeOf() is an inbuilt function in JavaScript which is used to check the prototype of an object that the user has created.
+
+// Example: 1
+
+const prototype = {
+    check: true
+}
+
+console.log(Object.getPrototypeOf(prototype));
+
+/*
+
+19. defineProperty
+
+*/
+
+// defineProperty() The static method Object. defineProperty() defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
+
+// Example: 1
+
+const ideas = {
+    ideaNumber: 1,
+    ideaOn: 'Technology',
+    author: 'Prince Khunt'
+}
+
+/* 
+
+Object.defineProperty(ideas, 'rating', {
+    value: 4.9,
+    writable: true
+});
+
+*/
+
+Object.defineProperty(ideas, 'rating', {
+    get: function () {
+        return this.author;
+    },
+    set: function (author) {
+        this.author = author
+    }
+});
+
+ideas.rating = 4.95;
+ideas.author = "author";
+
+console.log(ideas);
+
+/*
+
+20. getOwnPropertyDescriptors
+
+*/
+
+// getOwnPropertyDescriptors() method returns all own property descriptors of a given object.
+
+// Example: 1
+
+function Student() {
+    this.name = "Same";
+    this.hello = function () {
+        console.log("Hello")
+    }
+}
+
+let std = new Student();
+
+/*
+
+Object.defineProperty(std, 'name', {
+    writable: false
+});
+
+std.name = 'Steve';
+
+console.log(Object.getOwnPropertyDescriptor(std, 'name'));
+
+*/
+
+/*
+
+Object.defineProperty(std, 'name', {
+    enumerable: false
+});
+
+let studentProperties = Object.keys(std);
+
+console.log(studentProperties);
+
+console.log(Object.getOwnPropertyDescriptor(std, 'name'));
+
+*/
+
+/*
+
+Object.defineProperty(std, 'name', {
+    configurable: false
+});
+
+delete std.name;
+
+let studentProperties = Object.keys(std);
+
+console.log(studentProperties);
+
+*/
+
+/*
+
+21. length
+
+*/
+
+// Example: 1
+
+const length = {
+    car: '12feet',
+    truck: '25feet',
+    bike: '4feet'
+};
+
+console.log(Object.keys(length).length);
+
+/*
+
+22. getOwnPropertyNames
+
+*/
+
+// Example: 1
+
+console.log(Object.getOwnPropertyNames(length).sort());
+
+Object.getOwnPropertyNames(length).forEach((val, idx, array) => {
+    console.log(`${val} ${length[val]}`);
+});
+
+/*
+
+23. fromEntries
+
+*/
+
+// fromEntries() returns a new object whose properties are specified by the entries of the iterable. The Object.fromEntries() expects the iterable to return an iterator object that produces key-value pairs. It uses the key as the property key of the object and value as the value associated with the property key.
+
+// Example: 1
+
+const map = new Map();
+
+map.set('name', 'dom');
+map.set('age', 60);
+
+console.log(Object.fromEntries(map));
+
+// Example: 2
+
+const array = [
+    ['search', 'dogs'],
+    ['page', 'king']
+];
+
+console.log(Object.fromEntries(array));
+
+/*
+
+24. prototype
+
+*/
+
+// The prototype is an object that is associated with every functions and objects by default in JavaScript, where function's prototype property is accessible and modifiable and object's prototype property (aka attribute) is not visible. Every function includes prototype object by default. 
+
+// Example: 1
+
+function Obj(){
+    this.name;
+    this.sayHyy = function(){
+        console.log(`${this.name} hyy`);
+    }
+}
+
+Obj.prototype.getName = function(){
+    return this.name;
+}
+
+Obj.prototype.setName = function(name){
+    this.name = name;
+}
+
+let objPrototype = new Obj();
+
+/* 
+
+25. defineProperties
+
+*/
