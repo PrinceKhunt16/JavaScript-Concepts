@@ -10,7 +10,11 @@
 
 */ 
 
-// 1. Scope 
+/*
+
+1. Scope 
+
+*/
 
 var a = 5;
 
@@ -26,8 +30,11 @@ scope();
 
 console.log(b);
 
+/*
 
-// 2. Shadowing
+2. Shadowing
+
+*/
 
 function shadowing(){
     let c = "Hellow";
@@ -42,8 +49,11 @@ function shadowing(){
 
 shadowing();
 
+/*
 
-// 3. Illegal Shadowing
+3. Illegal Shadowing 
+
+*/
 
 function illegalShadowing(){
     // let d = "Hyy";
@@ -58,8 +68,11 @@ function illegalShadowing(){
 
 illegalShadowing();
 
+/*
 
-// 4. Declaration
+4. Declaration
+
+*/
 
 // Var can redeclaration 
 var e;
@@ -71,8 +84,11 @@ let f;
 // const cannot redeclaration
 const h = null;
 
+/*
 
-// 5. Decalaration without initialization
+5. Decalaration without initialization
+
+*/
 
 // Var can 
 var e;
@@ -84,8 +100,11 @@ let j;
 // const cannot
 const k = 0;
 
+/*
 
-// 6.Re-Initialization
+6.Re-Initialization
+
+*/
 
 // var can Re-Initialization
 var l = 10;
@@ -98,8 +117,11 @@ m = 20;
 // var cannot Re-Initialization
 const n = 10;
 
+/*
 
-// 7. Temporal Dead Zone
+7. Temporal Dead Zone
+
+*/
 
 // Temporal dead zone is the term to describe the state where variables are in the scope but they are not yet declared. 
 
