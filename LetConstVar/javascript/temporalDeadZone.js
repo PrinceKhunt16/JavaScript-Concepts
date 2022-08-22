@@ -5,7 +5,7 @@ function temporalDeadZone(){
     const z = 10;
 
     console.log(x, y, z);
-
+ 
     var x = 10;
     // let y = 10; Before initialization
     // const z = 10; Before initialization
