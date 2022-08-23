@@ -1,5 +1,12 @@
 /*
 
+1.Function Statement 
+2.Function Expression 
+3.Function Declaration 
+4.Function Anonymous 
+5.Named Function Expression
+6.First Class Expression
+
 What is function statement ?
 The function statement is declares a function.
 
