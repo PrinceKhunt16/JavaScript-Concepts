@@ -37,6 +37,8 @@ console.log(output);
 
 // 3
 
+/*
+
 function add(a){
     return function(b){
         if(b){
@@ -48,3 +50,14 @@ function add(a){
 }
 
 console.log(add(1)(2)(3)(4)());
+
+*/
+
+// 4
+
+let multiply = function(x, y){
+    console.log(x * y);
+}
+
+let multiplyByTwo = multiply.bind(this, 2);
+multiplyByTwo(2);

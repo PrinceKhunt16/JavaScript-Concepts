@@ -1,11 +1,9 @@
 /* 
 
-2. apply
-4. assign
-3. bind
 1. call
-15. create
-
+2. apply
+3. bind
+4. assign
 5. freeze
 6. isFrozen
 7. seal
@@ -16,6 +14,7 @@
 12. values
 13. name
 14. toString
+15. create
 16. is
 17. isExtensible
 18. getPrototypeOf
