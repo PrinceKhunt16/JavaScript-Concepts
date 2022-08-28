@@ -5,6 +5,7 @@
 3. Stop Propogation
 4. Immediadate Propogation
 5. Prevent Default
+6. Event Delegation
 
 */
 
@@ -12,15 +13,20 @@
 
 /*
 
-var div = document.querySelector('div');
-var button = document.querySelector('button');
+var topDiv = document.querySelector('.topDiv');
+var midDiv = document.querySelector('.midDiv');
+var insideDiv = document.querySelector('.insideDiv');
 
-div.addEventListener('click', () => {
-    console.log('div');
+topDiv.addEventListener('click', () => {
+    console.log('topDiv');
 });
 
-button.addEventListener('click', () => {
-    console.log('button');
+midDiv.addEventListener('click', () => {
+    console.log('midDiv');
+});
+
+insideDiv.addEventListener('click', () => {
+    console.log('insideDiv');
 });
 
 */
@@ -29,15 +35,44 @@ button.addEventListener('click', () => {
 
 /*
 
-var div = document.querySelector('div');
-var button = document.querySelector('button');
+var topDiv = document.querySelector('.topDiv');
+var midDiv = document.querySelector('.midDiv');
+var insideDiv = document.querySelector('.insideDiv');
 
-div.addEventListener('click', () => {
-    console.log('div');
+*/
+
+// 1
+
+/*
+
+topDiv.addEventListener('click', () => {
+    console.log('topDiv');
 }, true);
 
-button.addEventListener('click', () => {
-    console.log('button');
+midDiv.addEventListener('click', () => {
+    console.log('midDiv');
+}, true);
+
+insideDiv.addEventListener('click', () => {
+    console.log('insideDiv');
+}, true);
+
+*/
+
+// 2
+
+/*
+
+topDiv.addEventListener('click', () => {
+    console.log('topDiv');
+}, true);
+
+midDiv.addEventListener('click', () => {
+    console.log('midDiv');
+}, false);
+
+insideDiv.addEventListener('click', () => {
+    console.log('insideDiv');
 }, true);
 
 */
@@ -46,16 +81,21 @@ button.addEventListener('click', () => {
 
 /*
 
-var div = document.querySelector('div');
-var button = document.querySelector('button');
+var topDiv = document.querySelector('.topDiv');
+var midDiv = document.querySelector('.midDiv');
+var insideDiv = document.querySelector('.insideDiv');
 
-div.addEventListener('click', () => {
-    console.log('div');
+topDiv.addEventListener('click', () => {
+    console.log('topDiv');
 });
 
-button.addEventListener('click', (e) => {
+midDiv.addEventListener('click', (e) => {
     e.stopPropagation();
-    console.log('button');
+    console.log('midDiv');
+});
+
+insideDiv.addEventListener('click', () => {
+    console.log('insideDiv');
 });
 
 */
@@ -64,24 +104,57 @@ button.addEventListener('click', (e) => {
 
 /*
 
-var button = document.querySelector('button');
+var topDiv = document.querySelector('.topDiv');
+var midDiv = document.querySelector('.midDiv');
+var insideDiv = document.querySelector('.insideDiv');
 
-button.addEventListener('click', (e) => {
-    e.stopImmediatePropagation();
-    console.log('button with stopPropagation');
+topDiv.addEventListener('click', () => {
+    console.log('topDiv');
 });
 
-button.addEventListener('click', () => {
-    console.log('button without stopPropagation');
+midDiv.addEventListener('click', () => {
+    console.log('midDiv');
+});
+
+insideDiv.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
+    console.log('insideDiv');
 });
 
 */
 
 // 5. Prevent Default
 
-var button = document.querySelector('button');
+/*
 
-button.addEventListener('click', (e) => {
+var insideDiv = document.querySelector('.insideDiv');
+
+insideDiv.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('button');
+    console.log('insideDiv');
+});
+
+*/
+
+// 6. Event Delegation
+
+// 1
+
+/*
+
+document.querySelector('#category').addEventListener('click', (e) => {
+    console.log(e.target.id);
+    window.location.href = '/' + e.target.id;
+});
+
+*/
+
+// 2
+
+document.querySelector('#form').addEventListener('keyup', (e) => {
+    console.log(e);
+
+    if(e.target.dataset.uppercase != undefined){
+        e.target.value = e.target.value.toUpperCase();
+    }
 });

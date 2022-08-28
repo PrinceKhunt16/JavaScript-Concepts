@@ -7,28 +7,40 @@ function getData(){
 }
 
 function myDebounce(call, delay){
+    let timer;
+
     return function (){
-        setTimeout(() => {
-            call();
+        let context = this;
+        let args = arguments;
+
+        clearTimeout(timer);
+
+        timer = setTimeout(() => {
+            call.apply(context, args);
         }, delay);
     }
 }
 
-const bestFunction = myDebounce(getData, 1000);
+const bestFunction = myDebounce(getData, 500);
 
 // 2
 
 const func = (fn, delay) => {
+    let flag = true;
     return function(){
-        document.querySelector('button').disabled = true;
+        let context = this;
+        let args = arguments;
+        if(flag){
+            fn.apply(context, args);
+            flag = false;
 
-        setTimeout(() => {
-            fn();
-        }, delay);
+            setTimeout(() => {
+               flag = true;
+            }, delay);
+        }
     }
 }
 
 const throttle = func(() => {
-    document.querySelector('button').disabled = false;
-    console.log('clicked');
+    console.log('Seaching');
 }, 1000);
