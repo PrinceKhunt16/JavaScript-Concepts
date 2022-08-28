@@ -55,9 +55,35 @@ console.log(add(1)(2)(3)(4)());
 
 // 4
 
+/*
+
 let multiply = function(x, y){
     console.log(x * y);
 }
 
 let multiplyByTwo = multiply.bind(this, 2);
 multiplyByTwo(2);
+
+*/
+
+// 5
+
+function curry(func){
+    return function curriedFunc(...args){
+        if(args.length >= func.length){
+            return func(...args);
+        } else {
+            return function (...next){
+                return curriedFunc(...args, ...next);
+            }
+        }
+    }
+}
+
+const sum = (a, b, c, d) => {
+    return a + b + c + d;
+}
+
+const totalSum = curry(sum);
+
+console.log(totalSum(1)(2)(3)(4));
