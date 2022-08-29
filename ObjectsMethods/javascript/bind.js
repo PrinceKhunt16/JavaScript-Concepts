@@ -18,6 +18,8 @@ job();
 
 // 2
 
+/*
+
 let person = {
     firstName: "John",
     lastName: "Doe"
@@ -38,3 +40,62 @@ Function.prototype.myBind = function(...args){
 
 let printAboutYouAdvance = printAboutYou.myBind(person, 'Surat');
 printAboutYouAdvance('Gujarat');
+
+*/
+
+// 3
+
+/*
+ 
+function f(){
+    console.log(this);
+}
+
+let user = {
+    g: f.bind(null);
+}
+
+user.g();
+
+*/
+
+// 4 
+
+/*
+
+function f(){
+    console.log(this.name);
+}
+
+f = f.bind({name: 'john'}).bind({name: 'pen'});
+
+f();
+
+*/
+
+// 5
+
+/*
+
+function checkPassword(success, failed){
+    let password = prompt('password', '');
+    if(password == 'john'){
+        success();
+    } else {
+        failed();
+    }
+}
+
+let user = {
+    name: 'john',
+    loginSuccessful(){
+        console.log(this.name, 'loginSuccessful');
+    },
+    loginFaield(){
+        console.log(this.name, 'loginFaield');
+    }
+}
+
+checkPassword(user.loginSuccessful.bind(user), user.loginFaield.bind(user));
+
+*/
