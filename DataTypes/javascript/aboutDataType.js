@@ -9,7 +9,7 @@
 1.6 String
 1.7 Symbol
 
-2. Structural or Object
+2. Structural or Object Or Reference
 2.1 Object
 2.2 Array
 2.3 function

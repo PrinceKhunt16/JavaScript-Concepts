@@ -16,7 +16,7 @@ class User{
         return userOne.income - userTwo.income;
     }
 
-    static hasInCache() {
+    static hasInCache(){
         return true;
     }
 }
