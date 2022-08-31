@@ -23,7 +23,7 @@ console.log(summation);
 
 const nums = [1, 2, 3, 4];
 
-Array.prototype.muReduce = function(cb, initialValue){
+Array.prototype.myReduce = function(cb, initialValue){
   var accumulator = initialValue;
 
   for(let i = 0; i < this.length; i++){
@@ -33,7 +33,7 @@ Array.prototype.muReduce = function(cb, initialValue){
   return accumulator;
 }
 
-const addByTwo = nums.muReduce((acc, curr, i, nums) => {
+const addByTwo = nums.myReduce((acc, curr, i, nums) => {
   return acc + curr;
 });
 

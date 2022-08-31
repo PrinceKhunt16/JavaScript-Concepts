@@ -78,6 +78,6 @@ var f = function(func){
         console.log('return function')
     }
 }
-
+ 
 var fun = f(func);
 fun();

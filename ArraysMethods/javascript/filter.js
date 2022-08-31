@@ -18,7 +18,7 @@ console.log(filtered);
 
 const nums = [1, 2, 3, 4];
 
-Array.prototype.muFilter = function (cb) {
+Array.prototype.myFilter = function (cb) {
     let temp = [];
 
     for (let i = 0; i < this.length; i++) {
@@ -34,13 +34,13 @@ function isEven(value) {
     return value % 2 == 0;
 }
 
-const findEven = nums.muFilter((value, index, nums) => {
+const findEven = nums.myFilter((value, index, nums) => {
     return value % 2 == 0;
 });
 
 console.log(findEven);
 
-// 2
+// 3
 
 /*
 
