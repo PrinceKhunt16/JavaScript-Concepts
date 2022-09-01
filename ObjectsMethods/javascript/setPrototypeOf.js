@@ -14,6 +14,6 @@ let camry = {
     }
 };
 
-console.dir(camry);
+console.log(camry);
 
 Object.setPrototypeOf(camry, toyoto);

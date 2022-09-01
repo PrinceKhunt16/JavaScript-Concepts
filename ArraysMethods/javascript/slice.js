@@ -11,4 +11,4 @@ console.log(newArray);
 
 let copyArray = numbers.slice(0);
 
-console.log("copyArray", copyArray);
+console.log(copyArray);

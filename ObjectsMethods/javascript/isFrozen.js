@@ -1,4 +1,8 @@
-// Check if method is freeze so return true otherwise false
+/*
+
+Check if method is freeze so return true otherwise false
+
+*/
 
 const user = {
     name: "henry",

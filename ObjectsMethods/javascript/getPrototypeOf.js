@@ -2,8 +2,11 @@
 
 // Example: 1
 
-const prototype = {
-    check: true
+const myObject = {
+    city: 'Madrid',
+    greet(){
+        console.log(`Greetings from ${this.city}`);
+    }
 }
 
-console.log(Object.getPrototypeOf(prototype));
+console.log(Object.getPrototypeOf(myObject));
