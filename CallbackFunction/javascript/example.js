@@ -1,6 +1,8 @@
 // 1
 
-function x(n, y) {
+/*
+
+function x(n, y){
     console.log('before in x');
 
     y(n);
@@ -8,13 +10,17 @@ function x(n, y) {
     console.log('after in x');
 }
 
-function y(n) {
+function y(n){
     console.log('callback' + ' ' + n);
 }
 
 setTimeout(x, 1000, 'John', y);
 
+*/
+
 // 2
+
+/*
 
 const words = ['Hey', 'Jone', 'doe'];
 
@@ -35,3 +41,38 @@ function print(word){
 }
 
 show(print);
+
+*/
+
+// 3
+
+function scoreboard(num, time, onSuccess, onFail){
+    setTimeout(() => {
+        if(num){
+            console.log('Wicket gone', num);
+            onSuccess();
+        } else {
+            onFail();
+        }
+    }, time);
+}
+
+scoreboard(1, 1000, () => {
+    scoreboard(2, 1000, () => {
+        scoreboard(3, 1000, () => {
+            scoreboard(4, 1000, () => {
+                scoreboard(5, 1000, () => {
+                    scoreboard(6, 1000, () => {
+                        scoreboard(7, 1000, () => {
+                            scoreboard(8, 1000, () => {
+                                scoreboard(9, 1000, () => {
+                                    console.log('All Out');
+                                },() => {console.log('nooooohhh')});
+                            },() => {console.log('nooooohhh')});
+                        },() => {console.log('nooooohhh')});
+                    },() => {console.log('nooooohhh')});
+                },() => {console.log('nooooohhh')});
+            },() => {console.log('nooooohhh')});
+        },() => {console.log('nooooohhh')});
+    },() => {console.log('nooooohhh')});
+},() => {console.log('nooooohhh')});

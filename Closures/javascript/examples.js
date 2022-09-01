@@ -267,6 +267,8 @@ console.timeEnd();
 
 // 12
 
+/*
+
 function outest(){
     var c = 20;
 
@@ -274,7 +276,7 @@ function outest(){
         function inner(){
             console.log(a, b, c);
         }
-
+        
         let a = 10;
         return inner;
     }
@@ -285,3 +287,25 @@ function outest(){
 let a = 30;
 var close = (outest())("Hey");
 close();
+
+*/
+
+// 13
+
+function func(){
+    let counter = 0;
+
+    return function(){
+        if(counter < 1){
+            console.log(counter);
+            counter++;
+        } else{
+            console.log(counter);
+        }
+    }
+}
+
+const myFunc = func();
+myFunc();
+myFunc();
+myFunc();

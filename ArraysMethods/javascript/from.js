@@ -1,4 +1,3 @@
-let set = new Set(["JavaScript", "Python", "Go", "Python"]);
-
-let result = Array.from(set);
+let result = Array.from('javascript');
+result.slice(1);
 console.log(result);
