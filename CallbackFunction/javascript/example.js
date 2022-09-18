@@ -46,6 +46,8 @@ show(print);
 
 // 3
 
+/*
+
 function scoreboard(num, time, onSuccess, onFail){
     setTimeout(() => {
         if(num){
@@ -76,3 +78,23 @@ scoreboard(1, 1000, () => {
         },() => {console.log('nooooohhh')});
     },() => {console.log('nooooohhh')});
 },() => {console.log('nooooohhh')});
+
+*/
+
+// 4
+
+console.log('start');
+
+function importantAction(userName, cb){
+    setTimeout(() => {
+        cb(userName)
+    }, 1000);
+}
+
+const message = importantAction('Hellow guys', function(message){
+    console.log(message);
+});
+
+console.log(message);
+
+console.log('end');
