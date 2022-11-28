@@ -637,5 +637,3 @@ Promise.allPolyfill([
 });
 
 */
-
-// 18
