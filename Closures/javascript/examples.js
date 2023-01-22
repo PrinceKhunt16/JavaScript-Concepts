@@ -292,6 +292,8 @@ close();
 
 // 13
 
+/*
+
 function func(){
     let counter = 0;
 
@@ -309,3 +311,57 @@ const myFunc = func();
 myFunc();
 myFunc();
 myFunc();
+
+*/
+
+// 14
+
+/*
+
+var Module = (function() {
+    function privateMethod(){
+        console.log('private')
+    }
+
+    return {
+        publicMethod: function() {
+            console.log('public')
+        }
+    }
+})()
+
+Module.publicMethod()
+Module.privateMethod()
+
+*/
+
+// 15
+
+let counterMachine = (function () {
+    let counter = 0;
+
+    function changeBy(val) {
+        counter += val;
+    }
+
+    return {
+        increment: function () {
+            changeBy(1);
+        },
+        decrement: function () {
+            changeBy(-1);
+        },
+        value: function () {
+            return counter;
+        }
+    };
+})();
+
+console.log(counterMachine.value());
+
+counterMachine.increment();
+counterMachine.increment();
+console.log(counterMachine.value());
+
+counterMachine.decrement();
+console.log(counterMachine.value()); 
