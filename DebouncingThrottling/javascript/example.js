@@ -6,7 +6,7 @@ function getData(){
     console.log(counter++);
 }
 
-function myDebounce(call, delay){
+function myDebounce(callback, delay){
     let timer;
 
     return function (){
@@ -16,7 +16,7 @@ function myDebounce(call, delay){
         clearTimeout(timer);
 
         timer = setTimeout(() => {
-            call.apply(context, args);
+            callback.apply(context, args);
         }, delay);
     }
 }
@@ -25,11 +25,34 @@ const bestFunction = myDebounce(getData, 500);
 
 // 2
 
+/*
+
+const myThrottle = (callback, delay) => {
+    let last = 0
+
+    return function() {
+        let args = arguments
+        let now = new Date().getTime()
+
+        if(now - last < delay) {
+            return 
+        }
+
+        last = now 
+        
+        return callback(...args)
+    }
+}
+
+*/
+
 const func = (fn, delay) => {
     let flag = true;
+
     return function(){
         let context = this;
         let args = arguments;
+         
         if(flag){
             fn.apply(context, args);
             flag = false;
